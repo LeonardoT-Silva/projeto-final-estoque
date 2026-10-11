@@ -1,4 +1,4 @@
-# Controle de Estoque
+# Loja de Informática
 
 | | |
 |---|---|
