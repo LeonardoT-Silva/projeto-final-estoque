@@ -12,18 +12,20 @@
 ## 1. Visão geral
 
 ### 1.1 Problema
-<!-- Que problema o sistema resolve? Quem sofre com esse problema hoje e como ele é resolvido (planilha, papel, WhatsApp...)? 3 a 5 linhas. -->
+<!-- Que problema o sistema resolve? Quem sofre com esse problema hoje e como ele é resolvido (planilha, papel, WhatsApp...)? 3 a 5 linhas. --> Uma loja de informática precisa controlar os produtos disponíveis em estoque. Quando esse controle é feito manualmente, podem ocorrer erros nas quantidades e dificuldades para identificar produtos que precisam ser comprados.
+O sistema tem como objetivo facilitar o cadastro dos produtos e o controle das entradas e saídas do estoque.
+
 
 ### 1.2 Canvas do projeto
 
 | Bloco | Resposta |
 |---|---|
-| **Usuários** (quem usa o sistema) | |
-| **Problema** (dor atual) | |
-| **Proposta de valor** (o que melhora com o sistema) | |
-| **Funcionalidades principais** | |
-| **Informações que o sistema guarda** | |
-| **Indicadores** (o que o gestor quer acompanhar) | |
+| **Usuários** (quem usa o sistema) | Funcionários responsáveis pelo estoque e gerente da loja. |
+| **Problema** (dor atual) | Dificuldade para controlar as quantidades dos produtos e identificar quando é necessário repor o estoque. |
+| **Proposta de valor** (o que melhora com o sistema) | Facilitar a organização dos produtos e diminuir erros no controle do estoque. |
+| **Funcionalidades principais** | Cadastrar produtos e categorias, consultar produtos e registrar entradas e saídas. |
+| **Informações que o sistema guarda** | Nome, descrição, categoria, preço, quantidade disponível e estoque mínimo dos produtos. |
+| **Indicadores** (o que o gestor quer acompanhar) | Quantidade de produtos disponíveis, produtos com estoque baixo e movimentações realizadas. |
 | **Restrições** (prazo, tecnologia, equipe) | Projeto individual · Java 21 · Spring Boot 4 · entrega v1.0 em 11/11 |
 
 ---
@@ -34,24 +36,25 @@
 
 | ID | Requisito | Nível |
 |---|---|---|
-| RF01 | Ex.: O sistema deve permitir cadastrar, listar, editar e excluir categorias. | Essencial |
-| RF02 | | |
-| RF03 | | |
+| RF01 | O sistema deve permitir cadastrar, listar, editar e excluir categorias. | Essencial |
+| RF02 | O sistema deve permitir cadastrar, listar, editar e consultar produtos. | Essencial |
+| RF03 | O sistema deve permitir registrar entradas e saídas de produtos no estoque. | Essencial |
+| RF04 | O sistema deve exibir os produtos com quantidade igual ou inferior ao estoque mínimo. | Essencial |
 
 ### 2.2 Requisitos não funcionais (COMO o sistema deve ser)
 
 | ID | Requisito |
 |---|---|
 | RNF01 | O sistema deve ser acessado pelo navegador (aplicação web). |
-| RNF02 | O sistema deve exigir login e senha; as senhas devem ser armazenadas criptografadas. |
+| RNF02 | O sistema deve apresentar telas simples e organizadas, facilitando o uso pelos funcionários. |
 | RNF03 | |
 
 ### 2.3 Regras de negócio (as REGRAS do negócio que o sistema precisa respeitar)
 
 | ID | Regra |
 |---|---|
-| RN01 | Ex.: Não é permitido registrar uma saída maior que o saldo do produto. |
-| RN02 | |
+| RN01 | Não é permitido registrar uma saída maior que a quantidade disponível do produto. |
+| RN02 | O sistema deve alertar quando a quantidade de um produto for igual ou inferior ao estoque mínimo cadastrado. |
 
 ---
 
@@ -59,12 +62,20 @@
 
 Formato: **Como** *[papel]*, **quero** *[ação]*, **para** *[benefício]*.
 
-**HU01 —** Como ..., quero ..., para ...
-- Critério de aceite: ...
-- Critério de aceite: ...
+**HU01 — Cadastro de produtos —** Como funcionário do estoque, quero cadastrar produtos, para manter os itens da loja organizados.
 
-**HU02 —** Como ..., quero ..., para ...
-- Critério de aceite: ...
+- Critério de aceite: O sistema deve permitir informar o nome, a categoria, o preço e a quantidade do produto.
+- Critério de aceite: Após salvar, o produto deve aparecer na lista de produtos.
+
+**HU02 — Movimentação de estoque —** Como funcionário do estoque, quero registrar entradas e saídas de produtos, para manter as quantidades atualizadas.
+
+- Critério de aceite: O sistema deve aumentar a quantidade quando uma entrada for registrada.
+- Critério de aceite: O sistema não deve permitir uma saída maior que a quantidade disponível.
+
+**HU03 — Consulta de estoque baixo —** Como gerente da loja, quero visualizar os produtos com estoque baixo, para saber quais itens precisam ser comprados.
+
+- Critérios de aceite: O sistema deve identificar os produtos com quantidade igual ou inferior ao estoque mínimo.
+- Critérios de aceite: O sistema deve exibir o nome e a quantidade disponível desses produtos.
 
 ---
 
