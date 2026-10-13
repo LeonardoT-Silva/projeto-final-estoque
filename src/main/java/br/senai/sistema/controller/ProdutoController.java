@@ -10,14 +10,14 @@ import br.senai.sistema.service.ProdutoService;
 /**
  * Controller de Produto: recebe as requisições do navegador para /produtos.
  */
-@Controller 
+@Controller
 @RequestMapping("/produtos")
 public class ProdutoController {
 
     private final ProdutoService produtoService;
 
     public ProdutoController(ProdutoService produtoService) {
-        this.produtoService = produtoService; 
+        this.produtoService = produtoService;
     }
 
     /** GET /produtos -> mostra a lista. */
