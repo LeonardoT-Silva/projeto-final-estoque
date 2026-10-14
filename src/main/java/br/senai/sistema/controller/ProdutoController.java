@@ -21,7 +21,7 @@ public class ProdutoController {
     }
 
     /** GET /produtos -> mostra a lista. */
-    @GetMapping
+    @GetMapping("/produtos")
     public String listar(Model model) {
         model.addAttribute("produtos", produtoService.listarTodos());
         return "produtos/lista";
