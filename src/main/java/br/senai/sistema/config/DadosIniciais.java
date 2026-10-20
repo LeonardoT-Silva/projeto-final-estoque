@@ -44,18 +44,18 @@ public class DadosIniciais implements CommandLineRunner {
         }
 
         if (produtoRepository.count() == 0) {
-            Produto produto1 = new Produto("PRD-001", "Parafuso sextavado M8", "UN", new BigDecimal("0.45"), 100, 350);
-            Produto produto2 = new Produto("PRD-002", "Luva de proteção", "PAR", new BigDecimal("12.90"), 10, 8);
-            Produto produto3 = new Produto("PRD-003", "Fita isolante 20m", "UN", new BigDecimal("7.50"), 20, 42);
+            Produto produto1 = new Produto("PRD-001", "Mouse USB", "UN", new BigDecimal("35.00"), 5, 20);
+            Produto produto2 = new Produto("PRD-002", "Teclado USB", "UN", new BigDecimal("65.00"), 5, 15);
+            Produto produto3 = new Produto("PRD-003", "Headset", "UN", new BigDecimal("90.00"), 3, 10);
             produtoRepository.save(produto1);
             produtoRepository.save(produto2);
             produtoRepository.save(produto3);
         }
 
         if (categoriaRepository.count() == 0) {
-            Categoria categoria1 = new Categoria("Ferragens", "Parafusos, porcas e fixadores");
-            Categoria categoria2 = new Categoria("EPI", "Equipamentos de proteção individual");
-            Categoria categoria3 = new Categoria("Elétrica", "Fios, fitas e materiais elétricos");
+            Categoria categoria1 = new Categoria("Periféricos", "Produtos utilizados para conectar e interagir com computadores, como mouses e teclados.");
+            Categoria categoria2 = new Categoria("Áudio", "Produtos de som para computadores, como headsets e fones de ouvido.");
+            Categoria categoria3 = new Categoria("Armazenamento", "Produtos utilizados para armazenar e transferir arquivos digitais, como pen drives, SSDs e HDs.");
             categoriaRepository.save(categoria1);
             categoriaRepository.save(categoria2);
             categoriaRepository.save(categoria3);
