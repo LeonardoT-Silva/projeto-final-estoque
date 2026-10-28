@@ -1,5 +1,6 @@
 package br.senai.sistema.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.domain.Sort;
@@ -19,4 +20,10 @@ public interface MovimentacaoRepository extends JpaRepository<Movimentacao, Long
 
     // Filtro: registros de um tipo, na ordem indicada
     List<Movimentacao> findByTipo(TipoMovimentacao tipo, Sort ordem);
+
+    // Painel: quantas movimentações entre duas datas (ex.: no mês)
+    long countByDataBetween(LocalDate inicio, LocalDate fim);
+
+    // Painel (gráfico): quantas movimentações de cada tipo
+    long countByTipo(TipoMovimentacao tipo);
 }
