@@ -53,6 +53,12 @@ public class InicioController {
         return "diagnostico";
     }
 
+        /** Desafio: página de consulta de CEP (usa a API ViaCEP direto do navegador). */
+    @GetMapping("/cep")
+    public String cep() {
+        return "cep";
+    }
+
     /** Página de login (usada quando a segurança for ligada). */
     @GetMapping("/login")
     public String login() {
