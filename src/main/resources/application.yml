@@ -8,7 +8,9 @@
 app:
   # Nome do seu sistema: aparece no menu e no título das páginas.
   # TROQUE para o nome do seu projeto (ex.: "Estoque Fácil", "OS Técnica").
-  nome: "Controle de Estoque"
+  nome: "Estoque TecInformática"
+   # Nome da empresa: aparece no rodapé de todas as páginas.
+  empresa: "TecInformática"
   seguranca:
     # Segurança (login): ligada a partir do Encontro 7.
     ativa: true

@@ -1,4 +1,4 @@
-# Loja de Informática
+# TecInformática
 
 | | |
 |---|---|
