@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
@@ -34,6 +35,7 @@ public class Produto {
     /** Código interno do produto (não se repete). */
     @NotBlank(message = "Campo obrigatório.")
     @Size(max = 20, message = "Use no máximo 20 caracteres.")
+    @Pattern(regexp = "[A-Z]{3}-\\d{3}", message = "Use o formato AAA-000 (ex.: PRD-001).")
     @Column(nullable = false, unique = true, length = 20)
     private String codigo;
 
