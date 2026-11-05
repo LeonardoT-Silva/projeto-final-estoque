@@ -66,6 +66,11 @@ public class Produto {
     @Column(nullable = false)
     private Integer saldo;
 
+    /** Onde o produto fica guardado. */
+    @Size(max = 30, message = "Use no máximo 30 caracteres.")
+    @Column(length = 30)
+    private String localizacao;
+
     /** Categoria do produto (opcional): relacionamento N:1 (muitos registros daqui apontam para uma Categoria). */
     @ManyToOne
     @JoinColumn(name = "categoria_id")
@@ -149,5 +154,13 @@ public class Produto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
     }
 }
