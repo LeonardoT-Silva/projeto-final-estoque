@@ -59,6 +59,12 @@ public class InicioController {
         return "cep";
     }
 
+        /** Página "Sobre": informações do sistema e da equipe que o desenvolveu. */
+    @GetMapping("/sobre")
+    public String sobre() {
+        return "sobre";
+    }
+
     /** Página de login (usada quando a segurança for ligada). */
     @GetMapping("/login")
     public String login() {
