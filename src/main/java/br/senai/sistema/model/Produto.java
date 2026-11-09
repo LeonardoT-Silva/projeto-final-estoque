@@ -82,6 +82,11 @@ public class Produto {
     @Column(nullable = false)
     private Boolean ativo = true;
 
+    /** Fornecedor do produto (opcional): relacionamento N:1 (muitos registros daqui apontam para um Fornecedor). */
+    @ManyToOne
+    @JoinColumn(name = "fornecedor_id")
+    private Fornecedor fornecedor;
+
     /** Construtor vazio: obrigatório para o JPA e para o formulário criarem objetos. */
     public Produto() {
     }
@@ -170,7 +175,7 @@ public class Produto {
         this.localizacao = localizacao;
     }
 
-        /** Valor calculado (não é gravado no banco): saldo x preço de custo. */
+    /** Valor calculado (não é gravado no banco): saldo x preço de custo. */
     public BigDecimal getValorEmEstoque() {
         if (saldo == null || precoCusto == null) {
             return BigDecimal.ZERO;
@@ -178,11 +183,19 @@ public class Produto {
         return precoCusto.multiply(BigDecimal.valueOf(saldo));
     }
 
-       public Boolean getAtivo() {
+    public Boolean getAtivo() {
         return ativo;
     }
 
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public Fornecedor getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
     }
 }
