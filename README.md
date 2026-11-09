@@ -55,7 +55,10 @@ O sistema tem como objetivo facilitar o cadastro dos produtos e o controle das e
 |---|---|
 | RN01 | Não é permitido registrar uma saída maior que a quantidade disponível do produto. |
 | RN02 | O sistema deve alertar quando a quantidade de um produto for igual ou inferior ao estoque mínimo cadastrado. |
-
+| RN03 | Limites: valor máximo, quantidade máxima, prazo máximo. |
+| RN04 | Datas: não permitir fins de semana, feriados ou datas fora do horário de funcionamento. |
+| RN05 | Situação: impedir uma mudança fora da ordem (por exemplo, concluir sem iniciar). |
+| RN06 | Dependência: exigir um campo quando outro tiver certo valor. |
 ---
 
 ## 3. Histórias de usuário
