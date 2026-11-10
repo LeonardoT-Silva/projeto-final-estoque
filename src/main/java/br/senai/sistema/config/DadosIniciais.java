@@ -58,18 +58,18 @@ public class DadosIniciais implements CommandLineRunner {
         }
 
         if (categoriaRepository.count() == 0) {
-            Categoria categoria1 = new Categoria("Ferragens", "Parafusos, porcas e fixadores");
-            Categoria categoria2 = new Categoria("EPI", "Equipamentos de proteção individual");
-            Categoria categoria3 = new Categoria("Elétrica", "Fios, fitas e materiais elétricos");
+            Categoria categoria1 = new Categoria("Periféricos", "Produtos utilizados para conectar e interagir com computadores, como mouses e teclados.");
+            Categoria categoria2 = new Categoria("Áudio", "Fone de ouvido com microfone para chamadas, jogos e uso no computador.");
+            Categoria categoria3 = new Categoria("Memórias", "Produtos utilizados para armazenar e transferir arquivos digitais, como pen drives, SSDs e HDs.");
             categoriaRepository.save(categoria1);
             categoriaRepository.save(categoria2);
             categoriaRepository.save(categoria3);
         }
 
         if (produtoRepository.count() == 0) {
-            Produto produto1 = new Produto("PRD-001", "Parafuso sextavado M8", "UN", new BigDecimal("0.45"), 100, 350);
-            Produto produto2 = new Produto("PRD-002", "Luva de proteção", "PAR", new BigDecimal("12.90"), 10, 8);
-            Produto produto3 = new Produto("PRD-003", "Fita isolante 20m", "UN", new BigDecimal("7.50"), 20, 42);
+            Produto produto1 = new Produto("PRD-001", "Mouse USB", "UN", new BigDecimal("45.00"), 5, 20);
+            Produto produto2 = new Produto("PRD-002", "Teclado USB", "UN", new BigDecimal("80.00"), 5,15);
+            Produto produto3 = new Produto("PRD-003", "Headset", "UN", new BigDecimal("90.00"), 3, 10);
             produto1.setLocalizacao("Prateleira A1");
             produto2.setLocalizacao("Armário 2");
             produto3.setLocalizacao("Prateleira B3");
@@ -106,9 +106,9 @@ public class DadosIniciais implements CommandLineRunner {
 
         // Nova entidade (guia de personalização)
         if (fornecedorRepository.count() == 0) {
-            Fornecedor fornecedor1 = new Fornecedor("Distribuidora Paraná", "12.345.678/0001-90", "(43) 3321-1000");
-            Fornecedor fornecedor2 = new Fornecedor("Casa do Parafuso", "23.456.789/0001-01", "(43) 3322-2000");
-            Fornecedor fornecedor3 = new Fornecedor("EPI Sul", "34.567.890/0001-12", "(43) 3323-3000");
+            Fornecedor fornecedor1 = new Fornecedor("Oderço Distribuidora", "12.345.678/0001-90", "(43) 3321-1000");
+            Fornecedor fornecedor2 = new Fornecedor("Hayamax", "23.456.789/0001-01", "(43) 3322-2000");
+            Fornecedor fornecedor3 = new Fornecedor("RLS Comércio de Informática", "34.567.890/0001-12", "(43) 3323-3000");
             fornecedorRepository.save(fornecedor1);
             fornecedorRepository.save(fornecedor2);
             fornecedorRepository.save(fornecedor3);
