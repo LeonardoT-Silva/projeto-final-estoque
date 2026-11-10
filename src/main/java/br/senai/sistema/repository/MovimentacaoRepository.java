@@ -26,4 +26,7 @@ public interface MovimentacaoRepository extends JpaRepository<Movimentacao, Long
 
     // Painel (gráfico): quantas movimentações de cada tipo
     long countByTipo(TipoMovimentacao tipo);
+
+    // Desafio: quantos registros existem em cada tipo
+    long countByTipo(TipoMovimentacao tipo);
 }
