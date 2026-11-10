@@ -41,7 +41,7 @@ public class Produto {
 
     /** Descrição do produto. */
     @NotBlank(message = "Campo obrigatório.")
-    @Size(max = 100, message = "Use no máximo 100 caracteres.")
+    @Size(min = 3, max = 100, message = "O nome deve ter entre 3 e 100 caracteres.")
     @Column(nullable = false, length = 100)
     private String nome;
 
