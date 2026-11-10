@@ -1,5 +1,7 @@
 package br.senai.sistema.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.senai.sistema.model.Categoria;
@@ -12,4 +14,8 @@ import br.senai.sistema.model.Categoria;
  * JpaRepository<Categoria, Long>  ->  entidade Categoria, chave primária do tipo Long.
  */
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
+
+    // Consulta derivada do nome do método: o Spring Data monta o SQL sozinho.
+    // "Containing" = contém o texto; "IgnoreCase" = sem diferenciar maiúsculas; "OrderByNome" = ordenado.
+    List<Categoria> findByNomeContainingIgnoreCaseOrderByNome(String nome);
 }

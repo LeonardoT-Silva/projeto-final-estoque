@@ -1,6 +1,5 @@
 package br.senai.sistema.controller;
 
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.senai.sistema.model.Categoria;
@@ -28,10 +28,11 @@ public class CategoriaController {
         this.categoriaService = categoriaService;
     }
 
-    /** GET /categorias -> mostra a lista. */
+    /** GET /categorias -> mostra a lista. Com ?nome=texto, mostra só os que contêm o texto. */
     @GetMapping
-    public String listar(Model model) {
-        model.addAttribute("categorias", categoriaService.listarTodos());
+    public String listar(@RequestParam(required = false) String nome, Model model) {
+        model.addAttribute("categorias", categoriaService.buscarPorNome(nome));
+        model.addAttribute("nome", nome);
         return "categorias/lista";
     }
 
@@ -64,19 +65,11 @@ public class CategoriaController {
         return "categorias/form";
     }
 
-    /**
-     * POST /categorias/5/excluir -> exclui o registro de id 5.
-     * Se houver registros ligados a ele, o banco recusa a exclusão (integridade referencial)
-     * e o sistema mostra um aviso, em vez de uma página de erro.
-     */
+    /** POST /categorias/5/excluir -> exclui o registro de id 5. */
     @PostMapping("/{id}/excluir")
     public String excluir(@PathVariable Long id, RedirectAttributes atributos) {
-        try {
-            categoriaService.excluir(id);
-            atributos.addFlashAttribute("mensagem", "Categoria excluída com sucesso.");
-        } catch (DataIntegrityViolationException e) {
-            atributos.addFlashAttribute("erro", "Não é possível excluir: existem produtos ligados a esta categoria.");
-        }
+        categoriaService.excluir(id);
+        atributos.addFlashAttribute("mensagem", "Categoria excluída com sucesso.");
         return "redirect:/categorias";
     }
 }

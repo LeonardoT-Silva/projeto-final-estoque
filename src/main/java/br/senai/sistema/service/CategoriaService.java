@@ -26,6 +26,14 @@ public class CategoriaService {
         return categoriaRepository.findAll(Sort.by("nome"));
     }
 
+    /** Busca pelo nome (ou parte dele). Sem texto, devolve todos. */
+    public List<Categoria> buscarPorNome(String nome) {
+        if (nome == null || nome.isBlank()) {
+            return listarTodos();
+        }
+        return categoriaRepository.findByNomeContainingIgnoreCaseOrderByNome(nome.trim());
+    }
+
     /** Busca um registro pelo id. Se não existir, gera um erro com mensagem clara. */
     public Categoria buscarPorId(Long id) {
         return categoriaRepository.findById(id)
