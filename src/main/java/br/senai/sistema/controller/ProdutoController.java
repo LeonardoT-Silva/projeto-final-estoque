@@ -36,11 +36,19 @@ public class ProdutoController {
     }
 
     @GetMapping
-    public String listar(@RequestParam(required = false) String pesquisa, Model model) {
-        model.addAttribute("produtos", produtoService.buscarPorNomeOuCodigo(pesquisa));
-        model.addAttribute("pesquisa", pesquisa);
-        return "produtos/lista";
-    }
+public String listar(
+        @RequestParam(required = false) String pesquisa,
+        @RequestParam(defaultValue = "nomeAsc") String ordenacao,
+        Model model) {
+
+    model.addAttribute("produtos",
+            produtoService.buscarPorNomeOuCodigo(pesquisa, ordenacao));
+
+    model.addAttribute("pesquisa", pesquisa);
+    model.addAttribute("ordenacao", ordenacao);
+
+    return "produtos/lista";
+}
 
     @GetMapping("/novo")
     public String novo(Model model) {

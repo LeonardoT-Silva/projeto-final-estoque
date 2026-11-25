@@ -22,18 +22,25 @@ public class ProdutoService {
         return produtoRepository.findAll(Sort.by("nome"));
     }
 
-    public List<Produto> buscarPorNomeOuCodigo(String pesquisa) {
-        if (pesquisa == null || pesquisa.isBlank()) {
-            return listarTodos();
-        }
+    public List<Produto> buscarPorNomeOuCodigo(String pesquisa, String ordenacao) {
 
-        return produtoRepository
-                .findByNomeContainingIgnoreCaseOrCodigoContainingIgnoreCase(
-                        pesquisa.trim(), pesquisa.trim())
-                .stream()
-                .sorted((a, b) -> a.getNome().compareToIgnoreCase(b.getNome()))
-                .toList();
+    Sort sort = switch (ordenacao) {
+        case "nomeDesc" -> Sort.by(Sort.Direction.DESC, "nome");
+        case "codigo" -> Sort.by(Sort.Direction.ASC, "codigo");
+        case "saldo" -> Sort.by(Sort.Direction.ASC, "saldo");
+        default -> Sort.by(Sort.Direction.ASC, "nome");
+    };
+
+    if (pesquisa == null || pesquisa.isBlank()) {
+        return produtoRepository.findAll(sort);
     }
+
+    String termo = pesquisa.trim();
+
+    return produtoRepository
+            .findByNomeContainingIgnoreCaseOrCodigoContainingIgnoreCase(
+                    termo, termo, sort);
+}
 
     public Produto buscarPorId(Long id) {
         return produtoRepository.findById(id)

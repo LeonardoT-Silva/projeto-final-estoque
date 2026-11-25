@@ -16,7 +16,8 @@
     <!-- Mensagem de sucesso: fragmento reaproveitado do layout -->
     <div th:replace="~{fragments/layout :: mensagens}"></div>
 
-    <!-- Pesquisa de produtos por nome ou código -->
+
+<!-- Pesquisa e ordenação de produtos -->
 <form th:action="@{/produtos}" method="get" class="mb-3">
     <div class="input-group">
         <input type="text"
@@ -24,14 +25,32 @@
                class="form-control"
                placeholder="Pesquisar por nome ou código..."
                th:value="${pesquisa}">
+
+        <select name="ordenacao" class="form-select">
+            <option value="nomeAsc" th:selected="${ordenacao == 'nomeAsc'}">
+                Nome (A–Z)
+            </option>
+            <option value="nomeDesc" th:selected="${ordenacao == 'nomeDesc'}">
+                Nome (Z–A)
+            </option>
+            <option value="codigo" th:selected="${ordenacao == 'codigo'}">
+                Código
+            </option>
+            <option value="saldo" th:selected="${ordenacao == 'saldo'}">
+                Saldo (menor para maior)
+            </option>
+        </select>
+
         <button type="submit" class="btn btn-app">
-            <i class="bi bi-search"></i> Pesquisar
+            Aplicar
         </button>
+
         <a th:href="@{/produtos}" class="btn btn-outline-secondary">
             Limpar
         </a>
     </div>
 </form>
+
 
     <div th:if="${#lists.isEmpty(produtos)}" class="alert alert-info">
     Nenhum produto encontrado.
