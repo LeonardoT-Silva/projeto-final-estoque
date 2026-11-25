@@ -16,8 +16,26 @@
     <!-- Mensagem de sucesso: fragmento reaproveitado do layout -->
     <div th:replace="~{fragments/layout :: mensagens}"></div>
 
-    <!-- Mensagem quando ainda não há registros -->
-    <div th:if="${#lists.isEmpty(produtos)}" class="alert alert-info">Nenhum registro encontrado.</div>
+    <!-- Pesquisa de produtos por nome ou código -->
+<form th:action="@{/produtos}" method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text"
+               name="pesquisa"
+               class="form-control"
+               placeholder="Pesquisar por nome ou código..."
+               th:value="${pesquisa}">
+        <button type="submit" class="btn btn-app">
+            <i class="bi bi-search"></i> Pesquisar
+        </button>
+        <a th:href="@{/produtos}" class="btn btn-outline-secondary">
+            Limpar
+        </a>
+    </div>
+</form>
+
+    <div th:if="${#lists.isEmpty(produtos)}" class="alert alert-info">
+    Nenhum produto encontrado.
+</div>
 
     <div class="card shadow-sm" th:unless="${#lists.isEmpty(produtos)}">
         <div class="table-responsive">
