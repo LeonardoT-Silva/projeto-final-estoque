@@ -5,7 +5,7 @@
 | **Aluno(a)** | Leonardo Teodoro da Silva |
 | **Turma** | TEC-N-001788/2026 |
 | **Opção escolhida** | Controle de Estoque |
-| **Versão atual** | 1.0.0 |
+| **Versão atual** | 1.1.0 |
 
 ---
 
@@ -156,6 +156,7 @@ Java 21 · Spring Boot 4 · Spring MVC · Thymeleaf · Bootstrap 5 · Spring Dat
 |---|---|---|
 | 0.1.0 | | Projeto inicial criado a partir do repositório modelo |
 | 1.0.0 | 11/11/2026 | Primeira versão estável |
+| 1.1.0 | 25/11/2026 | Manutenção: chamados #10 e #11 resolvidos |
 
 ## Usuários de teste
 
