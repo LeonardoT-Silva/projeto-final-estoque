@@ -156,7 +156,7 @@ Java 21 · Spring Boot 4 · Spring MVC · Thymeleaf · Bootstrap 5 · Spring Dat
 |---|---|---|
 | 0.1.0 | | Projeto inicial criado a partir do repositório modelo |
 | 1.0.0 | 11/11/2026 | Primeira versão estável |
-| 1.1.0 | 25/11/2026 | Manutenção: chamados #10 e #11 resolvidos |
+| 1.1.0 | 25/11/2026 | Manutenção: chamados #10 e #11 resolvidos (veja o CHANGELOG.md) |
 
 ## Usuários de teste
 
@@ -205,3 +205,15 @@ Java 21 · Spring Boot 4 · Spring MVC · Thymeleaf · Bootstrap 5 · Spring Dat
 - [x] Repositório no GitHub com commits frequentes
 - [x] README com a visão do projeto, como executar, usuários de teste, funcionalidades e telas
 - [x] Quadro Kanban atualizado
+
+## 11. Indicadores de suporte (versão 1.1.0)
+
+| Indicador | Valor |
+|---|---|
+| Chamados registrados | 3 |
+| Chamados resolvidos | 2 |
+| Taxa de resolução | 66,67% |
+| Tempo médio de resolução | 7 dias |
+| Chamados por tipo | 2 perfectivas, 1 preventiva |
+
+**O que vou fazer diferente na próxima versão:** Melhorar mensagens de erro (preventiva, prioridade baixa).
